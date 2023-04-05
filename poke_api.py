@@ -68,10 +68,11 @@ def get_pokename_name(offset=0, limit=100000):
         if pokemon_info in None: 
             return 
         artwork_url = pokemon_info['spirits']['other']['offical-artwork']['front_default'] 
-    
+  
     def image_lib_download_image(artwork_url):
         if image_bytes is None:
             return 
+    file_ext = artwork_url.split(''[-1]) 
     image_path = os.path.join(save_dir, f'{pokemon_name}. {file_ext}')
     image_lib.save_image_file(image_bytes, image_path)
     
