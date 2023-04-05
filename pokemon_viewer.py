@@ -12,7 +12,7 @@ script_dir = os.path.dirname(script_path)
 image_cache_dir = os.path.join(script_dir, 'images')
 
 #Make the image directory 
-if os.path.isdir(image_cache_dir):
+if not os.path.isdir(image_cache_dir):
     os.makedirs(image_cache_dir) 
 
 # Set the window icon
@@ -48,7 +48,7 @@ def handle_pokemon_sel(event):
     global image_poke
     image_poke = poke_api.download_pokemon_artwork(pokemon_name,image_cache_dir)
     if image_poke is not None:
-          img_poke['file'] = image_poke
+        img_poke['file'] = image_poke
         
 cbox_poke_name.bind('<<ComboboxSelected>>', handle_pokemon_sel)
 
