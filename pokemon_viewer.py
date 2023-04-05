@@ -45,6 +45,7 @@ cbox_poke_name.grid(row=1, column=1, padx=10, pady=10)
 def handle_pokemon_sel(event):
     
     pokemon_name = cbox_poke_name.get() 
+    global image_poke
     image_poke = poke_api.download_pokemon_artwork(pokemon_name,image_cache_dir)
     if image_poke is not None:
           img_poke['file'] = image_poke
