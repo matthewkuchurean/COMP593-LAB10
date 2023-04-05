@@ -6,6 +6,7 @@ import poke_api
 root = Tk()
 root.title('Pokemon Viewer')
 root.minsize(500, 500)
+
 script_path = os.path.abspath(__file__)
 script_dir = os.path.dirname(script_path)
 image_cache_dir = os.path.join(script_dir, 'images')
@@ -37,18 +38,18 @@ root.columnconfigure(0, weight=40)
 root.columnconfigure(1, weight=60)
 
 pokemon_name_list = poke_api.get_pokename_name()
-cbox_poke_name = ttk.Combobox(Frame,values=pokemon_name_list, state='readonly')
+cbox_poke_name = ttk.Combobox(frm_left,values=pokemon_name_list, state='readonly')
 cbox_poke_name.set("Select a Pokemon")
 cbox_poke_name.grid(row=1, column=1, padx=10, pady=10)
 
-def handle_os_sel(event):
+def handle_pokemon_sel(event):
     
     pokemon_name = cbox_poke_name.get() 
-    image_path = poke_api.download_pokemon_artwork(pokemon_name,image_cache_dir)
-    if image_path is not None:
-          img_poke['file'] = image_path
-          
-cbox_poke_name.bind('<<ComboboxSelected>>', handle_os_sel)
+    image_poke = poke_api.download_pokemon_artwork(pokemon_name,image_cache_dir)
+    if image_poke is not None:
+          img_poke['file'] = image_poke
+        
+cbox_poke_name.bind('<<ComboboxSelected>>', handle_pokemon_sel)
 
 
 btn_set_desktop = ttk.Button(frm_left, text='Set Desktop Image')
