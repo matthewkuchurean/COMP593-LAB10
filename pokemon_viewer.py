@@ -5,7 +5,7 @@ import poke_api
 
 root = Tk()
 root.title('Pokemon Viewer')
-
+root.minsize(500, 500)
 script_path = os.path.abspath(__file__)
 script_dir = os.path.dirname(script_path)
 image_cache_dir = os.path.join(script_dir, 'images')
