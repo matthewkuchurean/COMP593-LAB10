@@ -1,7 +1,6 @@
 from tkinter import * 
-import os 
-script_path = os.path.abspath(__file__)
-script_dir = os.path.dirname(script_path)
+
+import poke_api
 
 # create the windows 
 root = Tk()
