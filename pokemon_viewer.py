@@ -37,7 +37,7 @@ root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=40)
 root.columnconfigure(1, weight=60)
 
-pokemon_name_list = poke_api.get_pokename_name()
+pokemon_name_list = sorted(poke_api.get_pokename_name())
 cbox_poke_name = ttk.Combobox(frm_left,values=pokemon_name_list, state='readonly')
 cbox_poke_name.set("Select a Pokemon")
 cbox_poke_name.grid(row=1, column=1, padx=10, pady=10)
